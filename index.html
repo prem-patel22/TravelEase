@@ -663,6 +663,656 @@
             border: none;
         }
 
+        /* NEW: Travel Quiz Styles */
+        .travel-quiz {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quiz-step {
+            display: none;
+        }
+
+        .quiz-step.active {
+            display: block;
+        }
+
+        .quiz-step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .quiz-option {
+            background-color: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .quiz-option:hover {
+            background-color: #ddeffd;
+            transform: translateY(-3px);
+        }
+
+        .quiz-option.selected {
+            border-color: var(--secondary);
+            background-color: #ddeffd;
+        }
+
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        /* NEW: Filters Section */
+        .filters-section {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .filter-group {
+            margin-bottom: 25px;
+        }
+
+        .filter-group h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .filter-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+        }
+
+        .filter-options label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .filter-options input {
+            margin-right: 8px;
+        }
+
+        .price-slider {
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .price-display {
+            text-align: center;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        /* NEW: Blog Styles */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--secondary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .blog-excerpt {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .blog-read-more {
+            color: var(--secondary);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .blog-read-more:hover {
+            color: var(--primary);
+        }
+
+        /* NEW: Special Offers */
+        .special-offers {
+            background-color: var(--light);
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .offer-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .offer-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .offer-card.highlight {
+            border: 2px solid var(--accent);
+        }
+
+        .offer-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background-color: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .offer-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .offer-details {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: var(--text-light);
+        }
+
+        .discount-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .countdown-timer {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .timer-unit {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+            min-width: 60px;
+        }
+
+        .timer-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .timer-label {
+            font-size: 0.8rem;
+            display: block;
+        }
+
+        /* NEW: Interactive Map */
+        .interactive-map {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .world-map {
+            position: relative;
+            height: 400px;
+            background-image: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .map-point {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .point-pulse {
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.8);
+                opacity: 1;
+            }
+            70% {
+                transform: scale(1.5);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(0.8);
+                opacity: 1;
+            }
+        }
+
+        .point-tooltip {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: var(--transition);
+            pointer-events: none;
+        }
+
+        .map-point:hover .point-tooltip {
+            opacity: 1;
+        }
+
+        /* NEW: Packages Tabs */
+        .packages-tabs {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .tab-headers {
+            display: flex;
+            background-color: var(--light);
+            overflow-x: auto;
+        }
+
+        .tab-header {
+            padding: 15px 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-header.active {
+            background-color: white;
+            border-bottom-color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .tab-header:hover {
+            background-color: #ddeffd;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 30px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .package-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .package-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .package-features span {
+            background-color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* NEW: Rating Stars */
+        .rating-stars {
+            margin-bottom: 15px;
+        }
+
+        .rating-stars i {
+            color: #f1c40f;
+            margin-right: 2px;
+        }
+
+        .rating-value {
+            margin-left: 10px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .review-helpful {
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .helpful-btn {
+            background-color: var(--light);
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .helpful-btn:hover {
+            background-color: #ddeffd;
+        }
+
+        /* NEW: Travel Checklist */
+        .checklist-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .checklist {
+            margin: 20px 0;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+        }
+
+        .checklist-item input {
+            margin-right: 15px;
+        }
+
+        .checkmark {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            margin-right: 15px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .checklist-item input:checked + .checkmark {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+        }
+
+        .checklist-item input:checked + .checkmark::after {
+            content: '✓';
+            position: absolute;
+            color: white;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px;
+        }
+
+        .checklist-progress {
+            margin-top: 30px;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background-color: #eee;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--secondary);
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-text {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* NEW: Weather Widget */
+        .destination-weather {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            margin-top: 30px;
+        }
+
+        .season-calendar {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 5px;
+            margin: 15px 0;
+        }
+
+        .month {
+            padding: 8px 5px;
+            text-align: center;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .month.excellent {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        .month.good {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .month.fair {
+            background-color: #f39c12;
+            color: white;
+        }
+
+        .month.poor {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .season-legend {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.8rem;
+        }
+
+        .color {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .color.excellent {
+            background-color: #2ecc71;
+        }
+
+        .color.good {
+            background-color: #3498db;
+        }
+
+        .color.fair {
+            background-color: #f39c12;
+        }
+
+        .color.poor {
+            background-color: #e74c3c;
+        }
+
+        /* NEW: Virtual Tour */
+        .virtual-tour {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-top: 40px;
+        }
+
+        .tour-viewer {
+            position: relative;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .tour-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .tour-btn {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tour-btn:hover {
+            background-color: white;
+        }
+
+        .tour-image {
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
         /* Footer */
         footer {
             background-color: var(--dark);
@@ -751,6 +1401,10 @@
             .contact-container {
                 grid-template-columns: 1fr;
             }
+            
+            .season-calendar {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -814,6 +1468,14 @@
             .about-stats {
                 grid-template-columns: 1fr;
             }
+            
+            .tab-headers {
+                flex-wrap: wrap;
+            }
+            
+            .season-calendar {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         @media (max-width: 576px) {
@@ -832,6 +1494,14 @@
             .form-container {
                 padding: 20px;
             }
+            
+            .quiz-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .season-calendar {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
@@ -847,6 +1517,9 @@
                 <li><a href="#" data-page="home">Home</a></li>
                 <li><a href="#" data-page="destinations">Destinations</a></li>
                 <li><a href="#" data-page="booking">Book Now</a></li>
+                <li><a href="#" data-page="blog">Travel Blog</a></li>
+                <li><a href="#" data-page="packages">Packages</a></li>
+                <li><a href="#" data-page="tools">Travel Tools</a></li>
                 <li><a href="#" data-page="about">About Us</a></li>
                 <li><a href="#" data-page="contact">Contact</a></li>
             </ul>
@@ -863,6 +1536,128 @@
                 <div class="search-box">
                     <input type="text" placeholder="Search destinations...">
                     <button><i class="fas fa-search"></i> Search</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Inspiration Quiz -->
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Find Your Perfect Destination</h2>
+                    <p>Take our quick quiz to discover destinations that match your travel style</p>
+                </div>
+                <div class="travel-quiz">
+                    <div class="quiz-step active" data-step="1">
+                        <h3>What type of experience are you looking for?</h3>
+                        <div class="quiz-options">
+                            <div class="quiz-option" data-value="beach">🏖️ Beach Relaxation</div>
+                            <div class="quiz-option" data-value="adventure">⛰️ Adventure & Hiking</div>
+                            <div class="quiz-option" data-value="culture">🏛️ Cultural Exploration</div>
+                            <div class="quiz-option" data-value="city">🏙️ City Exploration</div>
+                        </div>
+                        <div class="quiz-navigation">
+                            <button class="btn btn-outline" disabled>Previous</button>
+                            <button class="btn" id="next-step-1">Next</button>
+                        </div>
+                    </div>
+                    <div class="quiz-step" data-step="2">
+                        <h3>What's your travel budget?</h3>
+                        <div class="quiz-options">
+                            <div class="quiz-option" data-value="budget">💰 Budget ($500-$1,000)</div>
+                            <div class="quiz-option" data-value="moderate">💵 Moderate ($1,000-$2,500)</div>
+                            <div class="quiz-option" data-value="luxury">💎 Luxury ($2,500+)</div>
+                        </div>
+                        <div class="quiz-navigation">
+                            <button class="btn btn-outline" id="prev-step-2">Previous</button>
+                            <button class="btn" id="next-step-2">Next</button>
+                        </div>
+                    </div>
+                    <div class="quiz-step" data-step="3">
+                        <h3>When are you planning to travel?</h3>
+                        <div class="quiz-options">
+                            <div class="quiz-option" data-value="spring">🌸 Spring (Mar-May)</div>
+                            <div class="quiz-option" data-value="summer">☀️ Summer (Jun-Aug)</div>
+                            <div class="quiz-option" data-value="fall">🍂 Fall (Sep-Nov)</div>
+                            <div class="quiz-option" data-value="winter">⛄ Winter (Dec-Feb)</div>
+                        </div>
+                        <div class="quiz-navigation">
+                            <button class="btn btn-outline" id="prev-step-3">Previous</button>
+                            <button class="btn" id="show-results">See Results</button>
+                        </div>
+                    </div>
+                    <div class="quiz-step" data-step="4">
+                        <h3>Recommended Destinations For You</h3>
+                        <div class="destinations-grid" id="quiz-results">
+                            <!-- Results will be populated by JavaScript -->
+                        </div>
+                        <div class="quiz-navigation" style="justify-content: center;">
+                            <button class="btn" id="restart-quiz">Take Quiz Again</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Offers -->
+        <section class="section special-offers">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Special Offers</h2>
+                    <p>Limited time deals for your next adventure</p>
+                </div>
+                <div class="offers-grid">
+                    <div class="offer-card highlight">
+                        <div class="offer-badge">🔥 Hot Deal</div>
+                        <div class="offer-content">
+                            <h3>Early Bird Special</h3>
+                            <p>Book 90 days in advance and save 25% on all destinations</p>
+                            <div class="offer-details">
+                                <span class="original-price">$1,599</span>
+                                <span class="discount-price">$1,199</span>
+                            </div>
+                            <div class="countdown-timer" data-end="2024-12-31">
+                                <div class="timer-unit">
+                                    <span class="timer-value" id="days">15</span>
+                                    <span class="timer-label">Days</span>
+                                </div>
+                                <div class="timer-unit">
+                                    <span class="timer-value" id="hours">08</span>
+                                    <span class="timer-label">Hours</span>
+                                </div>
+                                <div class="timer-unit">
+                                    <span class="timer-value" id="minutes">45</span>
+                                    <span class="timer-label">Minutes</span>
+                                </div>
+                                <div class="timer-unit">
+                                    <span class="timer-value" id="seconds">30</span>
+                                    <span class="timer-label">Seconds</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="offer-card">
+                        <div class="offer-content">
+                            <h3>Family Package</h3>
+                            <p>Special rates for families - kids stay and eat free</p>
+                            <div class="offer-details">
+                                <span class="original-price">$2,200</span>
+                                <span class="discount-price">$1,799</span>
+                            </div>
+                            <a href="#" data-page="packages" class="btn btn-outline" style="margin-top: 15px;">View Details</a>
+                        </div>
+                    </div>
+                    <div class="offer-card">
+                        <div class="offer-content">
+                            <h3>Last Minute Deal</h3>
+                            <p>Spontaneous traveler? Get up to 40% off last-minute bookings</p>
+                            <div class="offer-details">
+                                <span class="original-price">$1,800</span>
+                                <span class="discount-price">$1,299</span>
+                            </div>
+                            <a href="#" data-page="destinations" class="btn btn-outline" style="margin-top: 15px;">Browse Destinations</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -983,6 +1778,14 @@
                 <div class="testimonials-grid">
                     <!-- Testimonial 1 -->
                     <div class="testimonial-card">
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="rating-value">4.5/5</span>
+                        </div>
                         <div class="testimonial-text">
                             <p>Our trip to Bali was absolutely magical! TravelEase took care of every detail, from airport transfers to guided tours. The accommodations were stunning and the local experiences were authentic. We'll definitely be booking our next vacation with them!</p>
                         </div>
@@ -995,10 +1798,23 @@
                                 <p>Bali Explorer</p>
                             </div>
                         </div>
+                        <div class="review-helpful">
+                            <span>Was this review helpful?</span>
+                            <button class="helpful-btn">👍 12</button>
+                            <button class="helpful-btn">👎 2</button>
+                        </div>
                     </div>
                     
                     <!-- Testimonial 2 -->
                     <div class="testimonial-card">
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="rating-value">5/5</span>
+                        </div>
                         <div class="testimonial-text">
                             <p>I've traveled with many companies, but TravelEase stands out for their attention to detail and personalized service. Our Greek island hopping adventure was seamless, and their local guides were incredibly knowledgeable. Highly recommended!</p>
                         </div>
@@ -1011,10 +1827,23 @@
                                 <p>Greece Adventurer</p>
                             </div>
                         </div>
+                        <div class="review-helpful">
+                            <span>Was this review helpful?</span>
+                            <button class="helpful-btn">👍 24</button>
+                            <button class="helpful-btn">👎 1</button>
+                        </div>
                     </div>
                     
                     <!-- Testimonial 3 -->
                     <div class="testimonial-card">
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="rating-value">4/5</span>
+                        </div>
                         <div class="testimonial-text">
                             <p>As a solo traveler, safety and organization are my top priorities. TravelEase exceeded my expectations with their Japan tour. The itinerary was perfectly balanced, and having a local contact available 24/7 gave me great peace of mind.</p>
                         </div>
@@ -1026,6 +1855,11 @@
                                 <h4>Emily Rodriguez</h4>
                                 <p>Japan Explorer</p>
                             </div>
+                        </div>
+                        <div class="review-helpful">
+                            <span>Was this review helpful?</span>
+                            <button class="helpful-btn">👍 18</button>
+                            <button class="helpful-btn">👎 3</button>
                         </div>
                     </div>
                 </div>
@@ -1056,6 +1890,67 @@
                     <p>Explore our wide range of travel destinations across the globe</p>
                 </div>
                 
+                <!-- Interactive Map -->
+                <div class="interactive-map">
+                    <div class="world-map">
+                        <div class="map-point" style="top: 40%; left: 75%;" data-destination="bali">
+                            <div class="point-pulse"></div>
+                            <div class="point-tooltip">Bali, Indonesia</div>
+                        </div>
+                        <div class="map-point" style="top: 35%; left: 50%;" data-destination="greece">
+                            <div class="point-pulse"></div>
+                            <div class="point-tooltip">Santorini, Greece</div>
+                        </div>
+                        <div class="map-point" style="top: 30%; left: 78%;" data-destination="japan">
+                            <div class="point-pulse"></div>
+                            <div class="point-tooltip">Kyoto, Japan</div>
+                        </div>
+                        <div class="map-point" style="top: 33%; left: 47%;" data-destination="france">
+                            <div class="point-pulse"></div>
+                            <div class="point-tooltip">Paris, France</div>
+                        </div>
+                        <div class="map-point" style="top: 35%; left: 25%;" data-destination="usa">
+                            <div class="point-pulse"></div>
+                            <div class="point-tooltip">New York, USA</div>
+                        </div>
+                        <div class="map-point" style="top: 60%; left: 85%;" data-destination="australia">
+                            <div class="point-pulse"></div>
+                            <div class="point-tooltip">Sydney, Australia</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Filters Section -->
+                <div class="filters-section">
+                    <div class="filter-group">
+                        <h4>Destination Type</h4>
+                        <div class="filter-options">
+                            <label><input type="checkbox" name="type" value="beach" checked> Beach</label>
+                            <label><input type="checkbox" name="type" value="mountain"> Mountain</label>
+                            <label><input type="checkbox" name="type" value="city"> City</label>
+                            <label><input type="checkbox" name="type" value="cultural"> Cultural</label>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Price Range</h4>
+                        <input type="range" min="500" max="5000" value="2500" class="price-slider" id="priceRange">
+                        <div class="price-display">$500 - $<span id="price-value">2500</span></div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Duration</h4>
+                        <select class="duration-filter">
+                            <option value="all">Any Duration</option>
+                            <option value="1-3">1-3 days</option>
+                            <option value="4-7">4-7 days</option>
+                            <option value="8+">8+ days</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn" style="width: 100%;">Apply Filters</button>
+                </div>
+                
                 <div class="destinations-grid">
                     <!-- Destination 1 -->
                     <div class="destination-card">
@@ -1065,6 +1960,27 @@
                         <div class="card-content">
                             <h3>Bali, Indonesia</h3>
                             <p>Experience the perfect blend of beautiful beaches, vibrant culture, and spiritual tranquility.</p>
+                            <div class="destination-weather">
+                                <h4>Best Time to Visit</h4>
+                                <div class="season-calendar">
+                                    <div class="month good">Jan</div>
+                                    <div class="month good">Feb</div>
+                                    <div class="month excellent">Mar</div>
+                                    <div class="month excellent">Apr</div>
+                                    <div class="month excellent">May</div>
+                                    <div class="month good">Jun</div>
+                                    <div class="month good">Jul</div>
+                                    <div class="month good">Aug</div>
+                                    <div class="month excellent">Sep</div>
+                                    <div class="month excellent">Oct</div>
+                                    <div class="month excellent">Nov</div>
+                                    <div class="month good">Dec</div>
+                                </div>
+                                <div class="season-legend">
+                                    <span class="legend-item"><span class="color excellent"></span> Excellent</span>
+                                    <span class="legend-item"><span class="color good"></span> Good</span>
+                                </div>
+                            </div>
                             <div class="price">
                                 <span>$1,299</span>
                                 <a href="#" data-page="booking" class="btn btn-accent">Book Now</a>
@@ -1080,6 +1996,29 @@
                         <div class="card-content">
                             <h3>Santorini, Greece</h3>
                             <p>Marvel at the stunning sunsets and white-washed buildings of this iconic Greek island.</p>
+                            <div class="destination-weather">
+                                <h4>Best Time to Visit</h4>
+                                <div class="season-calendar">
+                                    <div class="month poor">Jan</div>
+                                    <div class="month poor">Feb</div>
+                                    <div class="month fair">Mar</div>
+                                    <div class="month good">Apr</div>
+                                    <div class="month excellent">May</div>
+                                    <div class="month excellent">Jun</div>
+                                    <div class="month excellent">Jul</div>
+                                    <div class="month excellent">Aug</div>
+                                    <div class="month excellent">Sep</div>
+                                    <div class="month good">Oct</div>
+                                    <div class="month fair">Nov</div>
+                                    <div class="month poor">Dec</div>
+                                </div>
+                                <div class="season-legend">
+                                    <span class="legend-item"><span class="color excellent"></span> Excellent</span>
+                                    <span class="legend-item"><span class="color good"></span> Good</span>
+                                    <span class="legend-item"><span class="color fair"></span> Fair</span>
+                                    <span class="legend-item"><span class="color poor"></span> Poor</span>
+                                </div>
+                            </div>
                             <div class="price">
                                 <span>$1,599</span>
                                 <a href="#" data-page="booking" class="btn btn-accent">Book Now</a>
@@ -1095,6 +2034,28 @@
                         <div class="card-content">
                             <h3>Kyoto, Japan</h3>
                             <p>Immerse yourself in ancient traditions, beautiful temples, and exquisite gardens.</p>
+                            <div class="destination-weather">
+                                <h4>Best Time to Visit</h4>
+                                <div class="season-calendar">
+                                    <div class="month fair">Jan</div>
+                                    <div class="month fair">Feb</div>
+                                    <div class="month good">Mar</div>
+                                    <div class="month excellent">Apr</div>
+                                    <div class="month excellent">May</div>
+                                    <div class="month good">Jun</div>
+                                    <div class="month fair">Jul</div>
+                                    <div class="month fair">Aug</div>
+                                    <div class="month good">Sep</div>
+                                    <div class="month excellent">Oct</div>
+                                    <div class="month excellent">Nov</div>
+                                    <div class="month fair">Dec</div>
+                                </div>
+                                <div class="season-legend">
+                                    <span class="legend-item"><span class="color excellent"></span> Excellent</span>
+                                    <span class="legend-item"><span class="color good"></span> Good</span>
+                                    <span class="legend-item"><span class="color fair"></span> Fair</span>
+                                </div>
+                            </div>
                             <div class="price">
                                 <span>$1,899</span>
                                 <a href="#" data-page="booking" class="btn btn-accent">Book Now</a>
@@ -1224,6 +2185,365 @@
                         
                         <button type="submit" class="btn btn-accent" style="width: 100%;">Submit Booking Request</button>
                     </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Travel Blog Page -->
+    <div id="blog" class="page-content">
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Travel Guides & Tips</h2>
+                    <p>Expert advice to make your travels unforgettable</p>
+                </div>
+                <div class="blog-grid">
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Travel Packing Tips">
+                            <div class="blog-category">Travel Tips</div>
+                        </div>
+                        <div class="blog-content">
+                            <h3>10 Essential Packing Tips for International Travel</h3>
+                            <p class="blog-excerpt">Learn how to pack efficiently and avoid common travel mistakes that could ruin your trip. Our experts share their secrets for stress-free packing.</p>
+                            <div class="blog-meta">
+                                <span class="blog-date">March 15, 2024</span>
+                                <span class="blog-read-time">5 min read</span>
+                            </div>
+                            <a href="#" class="blog-read-more">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hidden Gems in Europe">
+                            <div class="blog-category">Destination Guides</div>
+                        </div>
+                        <div class="blog-content">
+                            <h3>7 Hidden Gems in Europe You've Never Heard Of</h3>
+                            <p class="blog-excerpt">Skip the crowded tourist spots and discover these breathtaking European destinations that remain off the beaten path.</p>
+                            <div class="blog-meta">
+                                <span class="blog-date">February 28, 2024</span>
+                                <span class="blog-read-time">8 min read</span>
+                            </div>
+                            <a href="#" class="blog-read-more">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Travel Photography">
+                            <div class="blog-category">Travel Photography</div>
+                        </div>
+                        <div class="blog-content">
+                            <h3>How to Take Stunning Travel Photos With Your Smartphone</h3>
+                            <p class="blog-excerpt">You don't need expensive equipment to capture amazing travel memories. Learn professional techniques using just your phone.</p>
+                            <div class="blog-meta">
+                                <span class="blog-date">February 12, 2024</span>
+                                <span class="blog-read-time">6 min read</span>
+                            </div>
+                            <a href="#" class="blog-read-more">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1484807352052-23338990c6c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Budget Travel">
+                            <div class="blog-category">Budget Travel</div>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Traveling on a Budget: 15 Money-Saving Hacks</h3>
+                            <p class="blog-excerpt">Discover clever ways to stretch your travel budget further without sacrificing experiences or comfort.</p>
+                            <div class="blog-meta">
+                                <span class="blog-date">January 30, 2024</span>
+                                <span class="blog-read-time">7 min read</span>
+                            </div>
+                            <a href="#" class="blog-read-more">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Solo Travel">
+                            <div class="blog-category">Solo Travel</div>
+                        </div>
+                        <div class="blog-content">
+                            <h3>The Ultimate Guide to Solo Travel: Safety and Enjoyment</h3>
+                            <p class="blog-excerpt">Everything you need to know about traveling alone safely while making the most of your solo adventure.</p>
+                            <div class="blog-meta">
+                                <span class="blog-date">January 18, 2024</span>
+                                <span class="blog-read-time">9 min read</span>
+                            </div>
+                            <a href="#" class="blog-read-more">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Local Cuisine">
+                            <div class="blog-category">Food & Culture</div>
+                        </div>
+                        <div class="blog-content">
+                            <h3>A Food Lover's Guide to Southeast Asia</h3>
+                            <p class="blog-excerpt">Explore the vibrant street food scenes and must-try dishes in Thailand, Vietnam, Malaysia, and beyond.</p>
+                            <div class="blog-meta">
+                                <span class="blog-date">January 5, 2024</span>
+                                <span class="blog-read-time">10 min read</span>
+                            </div>
+                            <a href="#" class="blog-read-more">Read More</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Packages Page -->
+    <div id="packages" class="page-content">
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Curated Travel Packages</h2>
+                    <p>All-inclusive packages for the perfect getaway</p>
+                </div>
+                <div class="packages-tabs">
+                    <div class="tab-headers">
+                        <div class="tab-header active" data-tab="honeymoon">💖 Honeymoon</div>
+                        <div class="tab-header" data-tab="family">👨‍👩‍👧‍👦 Family</div>
+                        <div class="tab-header" data-tab="adventure">⚡ Adventure</div>
+                        <div class="tab-header" data-tab="luxury">⭐ Luxury</div>
+                    </div>
+                    
+                    <div class="tab-content active" id="honeymoon">
+                        <div class="package-card">
+                            <h3>Romantic Bali Escape</h3>
+                            <div class="package-features">
+                                <span>🏨 5-Star Resort</span>
+                                <span>💝 Romantic Dinner</span>
+                                <span>🚗 Private Transfers</span>
+                                <span>🏝️ Private Beach</span>
+                                <span>💆 Couples Spa</span>
+                            </div>
+                            <p>Experience the ultimate romantic getaway in Bali with private villas, personalized service, and unforgettable experiences designed for couples.</p>
+                            <div class="price" style="margin-top: 20px;">
+                                <span>$2,499</span>
+                                <a href="#" data-page="booking" class="btn btn-accent">Book Now</a>
+                            </div>
+                        </div>
+                        
+                        <div class="package-card">
+                            <h3>Santorini Dream Honeymoon</h3>
+                            <div class="package-features">
+                                <span>🏛️ Cave Hotel</span>
+                                <span>🍷 Wine Tasting</span>
+                                <span>⛵ Private Cruise</span>
+                                <span>📸 Professional Photos</span>
+                                <span>🌅 Sunset Dinner</span>
+                            </div>
+                            <p>Celebrate your love in the iconic Greek islands with stunning views, luxurious accommodations, and romantic experiences at every turn.</p>
+                            <div class="price" style="margin-top: 20px;">
+                                <span>$3,199</span>
+                                <a href="#" data-page="booking" class="btn btn-accent">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="family">
+                        <div class="package-card">
+                            <h3>Orlando Family Adventure</h3>
+                            <div class="package-features">
+                                <span>🎡 Theme Park Tickets</span>
+                                <span>🏨 Family Suite</span>
+                                <span>🍕 All Meals Included</span>
+                                <span>👶 Kids Club</span>
+                                <span>🚌 Airport Transfers</span>
+                            </div>
+                            <p>The perfect family vacation with visits to major theme parks, comfortable accommodations, and activities for all ages.</p>
+                            <div class="price" style="margin-top: 20px;">
+                                <span>$3,499</span>
+                                <a href="#" data-page="booking" class="btn btn-accent">Book Now</a>
+                            </div>
+                        </div>
+                        
+                        <div class="package-card">
+                            <h3>Tokyo Family Discovery</h3>
+                            <div class="package-features">
+                                <span>🏯 Cultural Experiences</span>
+                                <span>🎎 Traditional Crafts</span>
+                                <span>🍣 Cooking Classes</span>
+                                <span>🚆 Bullet Train Ride</span>
+                                <span>🐼 Zoo & Aquarium</span>
+                            </div>
+                            <p>Introduce your family to the wonders of Japanese culture with kid-friendly activities, amazing food, and unforgettable experiences.</p>
+                            <div class="price" style="margin-top: 20px;">
+                                <span>$4,199</span>
+                                <a href="#" data-page="booking" class="btn btn-accent">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="adventure">
+                        <div class="package-card">
+                            <h3>New Zealand Extreme Adventure</h3>
+                            <div class="package-features">
+                                <span>🚁 Helicopter Tour</span>
+                                <span>🪂 Skydiving</span>
+                                <span>🚣 White Water Rafting</span>
+                                <span>🥾 Hiking Expeditions</span>
+                                <span>🏕️ Wilderness Camping</span>
+                            </div>
+                            <p>Get your adrenaline pumping with this action-packed adventure through New Zealand's most spectacular landscapes.</p>
+                            <div class="price" style="margin-top: 20px;">
+                                <span>$3,799</span>
+                                <a href="#" data-page="booking" class="btn btn-accent">Book Now</a>
+                            </div>
+                        </div>
+                        
+                        <div class="package-card">
+                            <h3>Costa Rica Eco Adventure</h3>
+                            <div class="package-features">
+                                <span>🌋 Volcano Tours</span>
+                                <span>🐒 Wildlife Safaris</span>
+                                <span>🏄 Surf Lessons</span>
+                                <span>🌿 Rainforest Trekking</span>
+                                <span>🛶 River Kayaking</span>
+                            </div>
+                            <p>Explore the rich biodiversity of Costa Rica with sustainable adventures that connect you with nature.</p>
+                            <div class="price" style="margin-top: 20px;">
+                                <span>$2,899</span>
+                                <a href="#" data-page="booking" class="btn btn-accent">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="luxury">
+                        <div class="package-card">
+                            <h3>Dubai Luxury Experience</h3>
+                            <div class="package-features">
+                                <span>🏙️ Burj Khalifa Suite</span>
+                                <span>🚁 Private Helicopter</span>
+                                <span>🛥️ Yacht Charter</span>
+                                <span>💎 Personal Shopper</span>
+                                <span>🍽️ Michelin Star Dining</span>
+                            </div>
+                            <p>Indulge in the ultimate luxury experience in Dubai with exclusive access, premium services, and unparalleled comfort.</p>
+                            <div class="price" style="margin-top: 20px;">
+                                <span>$7,499</span>
+                                <a href="#" data-page="booking" class="btn btn-accent">Book Now</a>
+                            </div>
+                        </div>
+                        
+                        <div class="package-card">
+                            <h3>Maldives Overwater Paradise</h3>
+                            <div class="package-features">
+                                <span>🏝️ Private Island</span>
+                                <span>🐠 Snorkeling & Diving</span>
+                                <span>💆 Private Spa</span>
+                                <span>🍾 Champagne Service</span>
+                                <span>🚤 Speedboat Transfers</span>
+                            </div>
+                            <p>Escape to your own private overwater villa in the Maldives with crystal clear waters, white sand beaches, and complete privacy.</p>
+                            <div class="price" style="margin-top: 20px;">
+                                <span>$5,999</span>
+                                <a href="#" data-page="booking" class="btn btn-accent">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Travel Tools Page -->
+    <div id="tools" class="page-content">
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Travel Planning Tools</h2>
+                    <p>Everything you need to plan your perfect trip</p>
+                </div>
+                
+                <div class="checklist-container">
+                    <h3>Pre-Travel Checklist</h3>
+                    <p>Use this checklist to make sure you're fully prepared for your upcoming trip:</p>
+                    
+                    <div class="checklist">
+                        <label class="checklist-item">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            Book flights
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            Reserve accommodations
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            Get travel insurance
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            Check passport validity
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            Apply for visas if needed
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            Get necessary vaccinations
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            Notify bank of travel plans
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            Arrange pet care
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            Pack luggage
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            Download travel apps
+                        </label>
+                    </div>
+                    
+                    <div class="checklist-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 30%"></div>
+                        </div>
+                        <span class="progress-text">3 of 10 tasks completed</span>
+                    </div>
+                </div>
+                
+                <!-- Virtual Tour -->
+                <div class="virtual-tour">
+                    <h3>Virtual Experience: Santorini, Greece</h3>
+                    <p>Take a virtual tour of one of our most popular destinations to get a preview of your dream vacation.</p>
+                    <div class="tour-viewer">
+                        <div class="tour-controls">
+                            <button class="tour-btn" data-direction="left">←</button>
+                            <button class="tour-btn" data-direction="right">→</button>
+                            <button class="tour-btn" data-action="zoom-in">+</button>
+                            <button class="tour-btn" data-action="zoom-out">-</button>
+                        </div>
+                        <div class="tour-image">
+                            <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Santorini Virtual Tour">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1473,6 +2793,9 @@
                         <li><a href="#" data-page="home">Home</a></li>
                         <li><a href="#" data-page="destinations">Destinations</a></li>
                         <li><a href="#" data-page="booking">Book a Trip</a></li>
+                        <li><a href="#" data-page="blog">Travel Blog</a></li>
+                        <li><a href="#" data-page="packages">Packages</a></li>
+                        <li><a href="#" data-page="tools">Travel Tools</a></li>
                         <li><a href="#" data-page="about">About Us</a></li>
                         <li><a href="#" data-page="contact">Contact</a></li>
                     </ul>
@@ -1574,6 +2897,300 @@
                     this.reset();
                 });
             }
+            
+            // Travel Quiz Functionality
+            const quizSteps = document.querySelectorAll('.quiz-step');
+            const quizOptions = document.querySelectorAll('.quiz-option');
+            const nextStep1 = document.getElementById('next-step-1');
+            const nextStep2 = document.getElementById('next-step-2');
+            const prevStep2 = document.getElementById('prev-step-2');
+            const prevStep3 = document.getElementById('prev-step-3');
+            const showResults = document.getElementById('show-results');
+            const restartQuiz = document.getElementById('restart-quiz');
+            const quizResults = document.getElementById('quiz-results');
+            
+            let quizAnswers = {
+                experience: '',
+                budget: '',
+                season: ''
+            };
+            
+            // Quiz option selection
+            quizOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const step = this.closest('.quiz-step');
+                    const options = step.querySelectorAll('.quiz-option');
+                    
+                    // Remove selected class from all options in this step
+                    options.forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    
+                    // Store the answer
+                    const stepNumber = step.getAttribute('data-step');
+                    const value = this.getAttribute('data-value');
+                    
+                    if (stepNumber === '1') {
+                        quizAnswers.experience = value;
+                    } else if (stepNumber === '2') {
+                        quizAnswers.budget = value;
+                    } else if (stepNumber === '3') {
+                        quizAnswers.season = value;
+                    }
+                });
+            });
+            
+            // Quiz navigation
+            if (nextStep1) {
+                nextStep1.addEventListener('click', function() {
+                    if (quizAnswers.experience) {
+                        showStep(2);
+                    } else {
+                        alert('Please select an option to continue.');
+                    }
+                });
+            }
+            
+            if (nextStep2) {
+                nextStep2.addEventListener('click', function() {
+                    if (quizAnswers.budget) {
+                        showStep(3);
+                    } else {
+                        alert('Please select an option to continue.');
+                    }
+                });
+            }
+            
+            if (prevStep2) {
+                prevStep2.addEventListener('click', function() {
+                    showStep(1);
+                });
+            }
+            
+            if (prevStep3) {
+                prevStep3.addEventListener('click', function() {
+                    showStep(2);
+                });
+            }
+            
+            if (showResults) {
+                showResults.addEventListener('click', function() {
+                    if (quizAnswers.season) {
+                        showStep(4);
+                        displayQuizResults();
+                    } else {
+                        alert('Please select an option to continue.');
+                    }
+                });
+            }
+            
+            if (restartQuiz) {
+                restartQuiz.addEventListener('click', function() {
+                    // Reset answers
+                    quizAnswers = {
+                        experience: '',
+                        budget: '',
+                        season: ''
+                    };
+                    
+                    // Clear selections
+                    quizOptions.forEach(option => {
+                        option.classList.remove('selected');
+                    });
+                    
+                    // Return to first step
+                    showStep(1);
+                });
+            }
+            
+            function showStep(stepNumber) {
+                quizSteps.forEach(step => {
+                    step.classList.remove('active');
+                });
+                
+                const targetStep = document.querySelector(`.quiz-step[data-step="${stepNumber}"]`);
+                if (targetStep) {
+                    targetStep.classList.add('active');
+                }
+            }
+            
+            function displayQuizResults() {
+                // Simple recommendation logic based on quiz answers
+                let recommendedDestinations = [];
+                
+                if (quizAnswers.experience === 'beach') {
+                    if (quizAnswers.budget === 'budget') {
+                        recommendedDestinations = ['Thailand', 'Vietnam', 'Mexico'];
+                    } else if (quizAnswers.budget === 'moderate') {
+                        recommendedDestinations = ['Bali', 'Greece', 'Portugal'];
+                    } else {
+                        recommendedDestinations = ['Maldives', 'Bora Bora', 'Seychelles'];
+                    }
+                } else if (quizAnswers.experience === 'adventure') {
+                    if (quizAnswers.budget === 'budget') {
+                        recommendedDestinations = ['Nepal', 'Peru', 'Costa Rica'];
+                    } else if (quizAnswers.budget === 'moderate') {
+                        recommendedDestinations = ['New Zealand', 'Iceland', 'Chile'];
+                    } else {
+                        recommendedDestinations = ['Antarctica', 'Patagonia', 'Swiss Alps'];
+                    }
+                } else if (quizAnswers.experience === 'culture') {
+                    if (quizAnswers.budget === 'budget') {
+                        recommendedDestinations = ['India', 'Cambodia', 'Morocco'];
+                    } else if (quizAnswers.budget === 'moderate') {
+                        recommendedDestinations = ['Japan', 'Italy', 'Turkey'];
+                    } else {
+                        recommendedDestinations = ['Egypt', 'Jordan', 'China'];
+                    }
+                } else if (quizAnswers.experience === 'city') {
+                    if (quizAnswers.budget === 'budget') {
+                        recommendedDestinations = ['Prague', 'Budapest', 'Lisbon'];
+                    } else if (quizAnswers.budget === 'moderate') {
+                        recommendedDestinations = ['Barcelona', 'Tokyo', 'Sydney'];
+                    } else {
+                        recommendedDestinations = ['New York', 'Paris', 'Dubai'];
+                    }
+                }
+                
+                // Display results
+                quizResults.innerHTML = '';
+                
+                recommendedDestinations.forEach(destination => {
+                    const destinationCard = document.createElement('div');
+                    destinationCard.className = 'destination-card';
+                    destinationCard.innerHTML = `
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="${destination}">
+                        </div>
+                        <div class="card-content">
+                            <h3>${destination}</h3>
+                            <p>Based on your preferences, we think you'll love exploring ${destination}. Click below to see available packages.</p>
+                            <div class="price">
+                                <span>From $999</span>
+                                <a href="#" data-page="destinations" class="btn btn-accent">Explore</a>
+                            </div>
+                        </div>
+                    `;
+                    
+                    quizResults.appendChild(destinationCard);
+                });
+            }
+            
+            // Package Tabs Functionality
+            const tabHeaders = document.querySelectorAll('.tab-header');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all headers and contents
+                    tabHeaders.forEach(h => h.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked header and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Price Slider Functionality
+            const priceSlider = document.getElementById('priceRange');
+            const priceValue = document.getElementById('price-value');
+            
+            if (priceSlider && priceValue) {
+                priceSlider.addEventListener('input', function() {
+                    priceValue.textContent = this.value;
+                });
+            }
+            
+            // Countdown Timer
+            function updateCountdown() {
+                const countdownElement = document.querySelector('.countdown-timer');
+                if (!countdownElement) return;
+                
+                const endDate = new Date(countdownElement.getAttribute('data-end')).getTime();
+                const now = new Date().getTime();
+                const distance = endDate - now;
+                
+                if (distance < 0) {
+                    document.getElementById('days').textContent = '00';
+                    document.getElementById('hours').textContent = '00';
+                    document.getElementById('minutes').textContent = '00';
+                    document.getElementById('seconds').textContent = '00';
+                    return;
+                }
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            }
+            
+            // Update countdown every second
+            setInterval(updateCountdown, 1000);
+            updateCountdown(); // Initial call
+            
+            // Checklist Functionality
+            const checklistItems = document.querySelectorAll('.checklist-item input');
+            const progressFill = document.querySelector('.progress-fill');
+            const progressText = document.querySelector('.progress-text');
+            
+            function updateChecklistProgress() {
+                const totalItems = checklistItems.length;
+                const checkedItems = document.querySelectorAll('.checklist-item input:checked').length;
+                const progressPercentage = (checkedItems / totalItems) * 100;
+                
+                if (progressFill) {
+                    progressFill.style.width = `${progressPercentage}%`;
+                }
+                
+                if (progressText) {
+                    progressText.textContent = `${checkedItems} of ${totalItems} tasks completed`;
+                }
+            }
+            
+            checklistItems.forEach(item => {
+                item.addEventListener('change', updateChecklistProgress);
+            });
+            
+            // Initialize progress
+            updateChecklistProgress();
+            
+            // Map Point Interaction
+            const mapPoints = document.querySelectorAll('.map-point');
+            
+            mapPoints.forEach(point => {
+                point.addEventListener('click', function() {
+                    const destination = this.getAttribute('data-destination');
+                    // In a real implementation, this would filter destinations
+                    alert(`You selected ${destination}. We'll show you destinations in this region.`);
+                });
+            });
+            
+            // Virtual Tour Controls (simplified)
+            const tourButtons = document.querySelectorAll('.tour-btn');
+            
+            tourButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const direction = this.getAttribute('data-direction');
+                    const action = this.getAttribute('data-action');
+                    
+                    if (direction) {
+                        alert(`Panning ${direction} in virtual tour`);
+                    } else if (action) {
+                        alert(`${action === 'zoom-in' ? 'Zooming in' : 'Zooming out'} in virtual tour`);
+                    }
+                });
+            });
         });
     </script>
 </body>
