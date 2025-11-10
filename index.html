@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelEase | Your Journey Begins Here</title>
+    <title>TravelEase | Your Complete Travel Companion</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* CSS Reset and Base Styles */
@@ -24,6 +24,9 @@
             --text-light: #7f8c8d;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --danger: #e74c3c;
         }
 
         html {
@@ -94,6 +97,14 @@
         .btn-outline:hover {
             background-color: var(--secondary);
             color: white;
+        }
+
+        .btn-success {
+            background-color: var(--success);
+        }
+
+        .btn-success:hover {
+            background-color: #27ae60;
         }
 
         .section {
@@ -1313,6 +1324,893 @@
             background-position: center;
         }
 
+        /* NEW: User Dashboard */
+        .user-dashboard {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .user-profile {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-header .avatar {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .profile-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .loyalty-points {
+            background-color: var(--light);
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .dashboard-card {
+            background-color: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .dashboard-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .trip-item, .history-item, .saved-item {
+            padding: 10px;
+            background-color: white;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* NEW: Itinerary Builder */
+        .itinerary-builder {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .itinerary-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .itinerary-header h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .itinerary-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .itinerary-timeline {
+            border-left: 3px solid var(--secondary);
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+
+        .day-section {
+            margin-bottom: 30px;
+        }
+
+        .day-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .timeline-items {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .timeline-item {
+            background-color: var(--light);
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .timeline-item .time {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .timeline-item .activity {
+            flex-grow: 1;
+            margin: 0 15px;
+        }
+
+        .timeline-item .duration {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* NEW: Live Booking */
+        .live-booking {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .booking-widget {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .booking-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .booking-tabs .tab {
+            padding: 15px 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+
+        .booking-tabs .tab.active {
+            border-bottom-color: var(--secondary);
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .booking-tabs .tab:hover {
+            color: var(--secondary);
+        }
+
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        /* NEW: Travel Community */
+        .travel-community {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .community-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .community-header h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .community-stats {
+            display: flex;
+            gap: 20px;
+        }
+
+        .community-stats span {
+            background-color: var(--light);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .community-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .post-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .post-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .post-info h5 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .post-info span {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .post-content p {
+            margin-bottom: 15px;
+        }
+
+        .post-image img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .post-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .post-actions button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .post-actions button:hover {
+            color: var(--secondary);
+        }
+
+        /* NEW: Travel Analytics */
+        .travel-analytics {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .analytics-dashboard h3 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .metric-card {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--light);
+            border-radius: 8px;
+        }
+
+        .metric-card h4 {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: conic-gradient(var(--secondary) 0% 85%, #eee 85% 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            font-weight: 700;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .score-circle::before {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        .score-circle span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .travel-map h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .visited-countries {
+            margin-bottom: 20px;
+        }
+
+        .countries-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .country-tag {
+            background-color: var(--light);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* NEW: AI Assistant */
+        .ai-assistant {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .assistant-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .assistant-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .assistant-header h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .status {
+            background-color: var(--success);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .chat-container {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            max-width: 80%;
+        }
+
+        .ai-message {
+            background-color: white;
+            align-self: flex-start;
+        }
+
+        .user-message {
+            background-color: var(--secondary);
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .chat-input input {
+            flex-grow: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        /* NEW: Travel Safety */
+        .travel-safety {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .safety-features h3 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+
+        .insurance-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .insurance-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .insurance-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .insurance-card.recommended {
+            border-color: var(--secondary);
+        }
+
+        .badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .insurance-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .insurance-card ul {
+            margin-bottom: 15px;
+        }
+
+        .insurance-card li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .insurance-card .price {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .safety-alerts h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .alert-item {
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .alert-item.warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+        }
+
+        .alert-item.info {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+
+        /* NEW: Loyalty Program */
+        .loyalty-program {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .loyalty-container h3 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .loyalty-levels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .level-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .level-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .level-card.active {
+            border-color: var(--secondary);
+            background-color: #f8f9fa;
+        }
+
+        .level-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .level-card p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .level-card ul {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .level-card li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .rewards-catalog h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .reward-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .reward-item {
+            background-color: var(--light);
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* NEW: Smart Search */
+        .smart-search {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .search-advanced h3 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+
+        .search-filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .style-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .style-option {
+            padding: 10px 15px;
+            background-color: var(--light);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .style-option.active {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .interest-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            padding: 8px 15px;
+            background-color: var(--light);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tag:hover {
+            background-color: #ddeffd;
+        }
+
+        .pace-slider {
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .pace-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* NEW: VR Experiences */
+        .vr-experiences {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .vr-container h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .vr-container p {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text-light);
+        }
+
+        .vr-tours {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .vr-tour-card {
+            background-color: var(--light);
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .vr-tour-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .vr-headset {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .vr-tour-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .vr-tour-card p {
+            margin-bottom: 15px;
+        }
+
+        /* NEW: Sustainable Travel */
+        .sustainable-travel {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .sustainability-metrics h3 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .impact-stat {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--light);
+            border-radius: 8px;
+        }
+
+        .impact-stat .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            display: block;
+        }
+
+        .impact-stat .label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .eco-certifications h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .cert-badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .cert-badges .badge {
+            position: static;
+            transform: none;
+            background-color: var(--success);
+        }
+
+        /* NEW: Mobile App */
+        .mobile-app {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 8px;
+            padding: 50px 30px;
+            margin-bottom: 40px;
+        }
+
+        .app-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .app-content h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .app-content p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .app-features {
+            margin-bottom: 30px;
+        }
+
+        .app-features li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .app-download {
+            display: flex;
+            gap: 15px;
+        }
+
+        .app-store, .google-play {
+            padding: 12px 25px;
+            background-color: white;
+            color: var(--primary);
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .app-store:hover, .google-play:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .app-preview img {
+            max-width: 300px;
+            margin: 0 auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
         /* Footer */
         footer {
             background-color: var(--dark);
@@ -1389,6 +2287,17 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .app-showcase {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .app-preview {
+                order: -1;
+            }
+        }
+
         @media (max-width: 992px) {
             .hero h1 {
                 font-size: 2.8rem;
@@ -1404,6 +2313,20 @@
             
             .season-calendar {
                 grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .community-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .community-stats {
+                justify-content: center;
             }
         }
 
@@ -1476,6 +2399,32 @@
             .season-calendar {
                 grid-template-columns: repeat(3, 1fr);
             }
+            
+            .itinerary-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .analytics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .insurance-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .loyalty-levels {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-filters {
+                grid-template-columns: 1fr;
+            }
+            
+            .impact-stats {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1502,6 +2451,15 @@
             .season-calendar {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .timer-unit {
+                min-width: 50px;
+            }
+            
+            .app-download {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -1520,6 +2478,8 @@
                 <li><a href="#" data-page="blog">Travel Blog</a></li>
                 <li><a href="#" data-page="packages">Packages</a></li>
                 <li><a href="#" data-page="tools">Travel Tools</a></li>
+                <li><a href="#" data-page="community">Community</a></li>
+                <li><a href="#" data-page="dashboard">Dashboard</a></li>
                 <li><a href="#" data-page="about">About Us</a></li>
                 <li><a href="#" data-page="contact">Contact</a></li>
             </ul>
@@ -1662,6 +2622,32 @@
             </div>
         </section>
 
+        <!-- Mobile App Section -->
+        <section class="section mobile-app">
+            <div class="container">
+                <div class="app-showcase">
+                    <div class="app-content">
+                        <h3>TravelEase Mobile App</h3>
+                        <p>Your travel companion on the go</p>
+                        <ul class="app-features">
+                            <li>📱 Offline maps & itineraries</li>
+                            <li>🔔 Real-time flight alerts</li>
+                            <li>💬 24/7 chat support</li>
+                            <li>📸 Photo journal</li>
+                            <li>💰 Expense tracker</li>
+                        </ul>
+                        <div class="app-download">
+                            <button class="app-store">App Store</button>
+                            <button class="google-play">Google Play</button>
+                        </div>
+                    </div>
+                    <div class="app-preview">
+                        <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="TravelEase App">
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Featured Destinations -->
         <section class="section">
             <div class="container">
@@ -1763,6 +2749,37 @@
                         </div>
                         <h3>Travel Protection</h3>
                         <p>Comprehensive travel insurance options to protect your journey and give you peace of mind.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Assistant -->
+        <section class="section">
+            <div class="container">
+                <div class="ai-assistant">
+                    <div class="assistant-container">
+                        <div class="assistant-header">
+                            <h3>🤖 TravelEase AI Assistant</h3>
+                            <span class="status">Online</span>
+                        </div>
+                        <div class="chat-container">
+                            <div class="chat-messages">
+                                <div class="message ai-message">
+                                    <p>Hi! I'm your AI travel assistant. How can I help plan your next adventure?</p>
+                                </div>
+                                <div class="message user-message">
+                                    <p>I'm looking for a beach destination with good food and culture.</p>
+                                </div>
+                                <div class="message ai-message">
+                                    <p>Based on your preferences, I recommend Bali, Thailand, or Portugal. Would you like me to create a custom itinerary?</p>
+                                </div>
+                            </div>
+                            <div class="chat-input">
+                                <input type="text" placeholder="Ask me anything about travel...">
+                                <button class="btn">Send</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1917,6 +2934,44 @@
                             <div class="point-pulse"></div>
                             <div class="point-tooltip">Sydney, Australia</div>
                         </div>
+                    </div>
+                </div>
+                
+                <!-- Smart Search -->
+                <div class="smart-search">
+                    <div class="search-advanced">
+                        <h3>Smart Search</h3>
+                        <div class="search-filters">
+                            <div class="filter-group">
+                                <label>Travel Style</label>
+                                <div class="style-options">
+                                    <div class="style-option active">Solo</div>
+                                    <div class="style-option">Couples</div>
+                                    <div class="style-option">Family</div>
+                                    <div class="style-option">Group</div>
+                                </div>
+                            </div>
+                            <div class="filter-group">
+                                <label>Interests</label>
+                                <div class="interest-tags">
+                                    <span class="tag">Food & Wine</span>
+                                    <span class="tag">Adventure</span>
+                                    <span class="tag">Wellness</span>
+                                    <span class="tag">History</span>
+                                    <span class="tag">Photography</span>
+                                </div>
+                            </div>
+                            <div class="filter-group">
+                                <label>Pace</label>
+                                <input type="range" min="1" max="5" value="3" class="pace-slider">
+                                <div class="pace-labels">
+                                    <span>Relaxed</span>
+                                    <span>Balanced</span>
+                                    <span>Active</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-accent">Find Perfect Trips</button>
                     </div>
                 </div>
                 
@@ -2119,6 +3174,68 @@
                 <div class="section-title">
                     <h2>Book Your Dream Vacation</h2>
                     <p>Fill out the form below to start planning your unforgettable journey</p>
+                </div>
+                
+                <!-- Live Booking Widget -->
+                <div class="live-booking">
+                    <div class="booking-widget">
+                        <div class="booking-tabs">
+                            <div class="tab active" data-tab="flights">✈️ Flights</div>
+                            <div class="tab" data-tab="hotels">🏨 Hotels</div>
+                            <div class="tab" data-tab="cars">🚗 Car Rental</div>
+                        </div>
+                        <div class="booking-form">
+                            <div class="form-row">
+                                <input type="text" id="flight-from" placeholder="From: New York (JFK)">
+                                <input type="text" id="flight-to" placeholder="To: Bali (DPS)">
+                            </div>
+                            <div class="form-row">
+                                <input type="date" placeholder="Departure">
+                                <input type="date" placeholder="Return">
+                            </div>
+                            <button class="btn btn-accent" id="search-flights">Search Flights</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Travel Safety & Insurance -->
+                <div class="travel-safety">
+                    <div class="safety-features">
+                        <h3>Travel Safety & Insurance</h3>
+                        <div class="insurance-options">
+                            <div class="insurance-card" id="basic-coverage">
+                                <h4>Basic Coverage</h4>
+                                <ul>
+                                    <li>✅ Trip cancellation</li>
+                                    <li>✅ Medical emergency</li>
+                                    <li>❌ Lost luggage</li>
+                                </ul>
+                                <span class="price">$49</span>
+                                <button class="btn btn-outline" style="margin-top: 10px; width: 100%;">Select</button>
+                            </div>
+                            <div class="insurance-card recommended" id="comprehensive-coverage">
+                                <div class="badge">Most Popular</div>
+                                <h4>Comprehensive</h4>
+                                <ul>
+                                    <li>✅ Trip cancellation</li>
+                                    <li>✅ Medical emergency</li>
+                                    <li>✅ Lost luggage</li>
+                                    <li>✅ Flight delays</li>
+                                </ul>
+                                <span class="price">$89</span>
+                                <button class="btn btn-accent" style="margin-top: 10px; width: 100%;">Select</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="safety-alerts">
+                        <h4>Travel Advisories</h4>
+                        <div class="alert-item warning">
+                            <span>⚠️ Weather Alert: Typhoon season in Southeast Asia</span>
+                        </div>
+                        <div class="alert-item info">
+                            <span>ℹ️ COVID-19: No restrictions for Bali</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="form-container">
@@ -2464,6 +3581,51 @@
                     <p>Everything you need to plan your perfect trip</p>
                 </div>
                 
+                <!-- Itinerary Builder -->
+                <div class="itinerary-builder">
+                    <div class="itinerary-header">
+                        <h3>Build Your Perfect Itinerary</h3>
+                        <div class="itinerary-controls">
+                            <button class="btn">Add Activity</button>
+                            <button class="btn">Save Itinerary</button>
+                            <button class="btn">Share</button>
+                        </div>
+                    </div>
+                    <div class="itinerary-timeline">
+                        <div class="day-section">
+                            <h4>Day 1: Arrival in Bali</h4>
+                            <div class="timeline-items">
+                                <div class="timeline-item">
+                                    <span class="time">09:00 AM</span>
+                                    <span class="activity">Airport Pickup</span>
+                                    <span class="duration">1 hour</span>
+                                </div>
+                                <div class="timeline-item">
+                                    <span class="time">02:00 PM</span>
+                                    <span class="activity">Beach Relaxation</span>
+                                    <span class="duration">3 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-section">
+                            <h4>Day 2: Cultural Exploration</h4>
+                            <div class="timeline-items">
+                                <div class="timeline-item">
+                                    <span class="time">10:00 AM</span>
+                                    <span class="activity">Temple Visit</span>
+                                    <span class="duration">2 hours</span>
+                                </div>
+                                <div class="timeline-item">
+                                    <span class="time">01:00 PM</span>
+                                    <span class="activity">Local Market & Lunch</span>
+                                    <span class="duration">3 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Travel Checklist -->
                 <div class="checklist-container">
                     <h3>Pre-Travel Checklist</h3>
                     <p>Use this checklist to make sure you're fully prepared for your upcoming trip:</p>
@@ -2542,6 +3704,259 @@
                         </div>
                         <div class="tour-image">
                             <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Santorini Virtual Tour">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- VR Experiences -->
+                <div class="vr-experiences">
+                    <div class="vr-container">
+                        <h3>Virtual Reality Previews</h3>
+                        <p>Experience destinations before you book</p>
+                        <div class="vr-tours">
+                            <div class="vr-tour-card">
+                                <div class="vr-headset">🎮</div>
+                                <h4>Santorini VR Tour</h4>
+                                <p>Walk through Oia village at sunset</p>
+                                <button class="btn">Start VR Experience</button>
+                            </div>
+                            <div class="vr-tour-card">
+                                <div class="vr-headset">🎮</div>
+                                <h4>Bali Temple Tour</h4>
+                                <p>Explore ancient temples in 360°</p>
+                                <button class="btn">Start VR Experience</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Community Page -->
+    <div id="community" class="page-content">
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Travel Community</h2>
+                    <p>Connect with fellow travelers and share your experiences</p>
+                </div>
+                
+                <div class="travel-community">
+                    <div class="community-header">
+                        <h3>Travel Community</h3>
+                        <div class="community-stats">
+                            <span>👥 50K+ Travelers</span>
+                            <span>📸 120K+ Photos</span>
+                            <span>💬 25K+ Reviews</span>
+                        </div>
+                    </div>
+                    <div class="community-feed">
+                        <div class="post-card">
+                            <div class="post-header">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="User">
+                                <div class="post-info">
+                                    <h5>Sarah Johnson</h5>
+                                    <span>Posted from Bali</span>
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                <p>Just witnessed the most amazing sunset at Uluwatu Temple! 🌅 The traditional Kecak dance performance was absolutely mesmerizing. #Bali #Sunset #Culture</p>
+                                <div class="post-image">
+                                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Bali Sunset">
+                                </div>
+                            </div>
+                            <div class="post-actions">
+                                <button>❤️ 245</button>
+                                <button>💬 42</button>
+                                <button>📌 Save</button>
+                            </div>
+                        </div>
+                        
+                        <div class="post-card">
+                            <div class="post-header">
+                                <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="User">
+                                <div class="post-info">
+                                    <h5>Michael Chen</h5>
+                                    <span>Posted from Santorini</span>
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                <p>Nothing beats watching the sunset in Oia with a glass of local Assyrtiko wine! The white-washed buildings against the blue sea is a view I'll never forget. 🍷🌅 #Santorini #Greece #TravelGoals</p>
+                                <div class="post-image">
+                                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Santorini">
+                                </div>
+                            </div>
+                            <div class="post-actions">
+                                <button>❤️ 189</button>
+                                <button>💬 31</button>
+                                <button>📌 Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div id="dashboard" class="page-content">
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Your Travel Dashboard</h2>
+                    <p>Manage your trips, rewards, and travel preferences</p>
+                </div>
+                
+                <!-- User Dashboard -->
+                <div class="user-dashboard">
+                    <div class="user-profile">
+                        <div class="profile-header">
+                            <div class="avatar">👤</div>
+                            <h3>Welcome, Sarah!</h3>
+                            <div class="loyalty-points">⭐ 1,250 Points</div>
+                        </div>
+                        <div class="dashboard-grid">
+                            <div class="dashboard-card">
+                                <h4>Upcoming Trips</h4>
+                                <div class="trip-item">
+                                    <span>Bali, Indonesia</span>
+                                    <span>Jun 15-22, 2024</span>
+                                </div>
+                                <div class="trip-item">
+                                    <span>Paris, France</span>
+                                    <span>Sep 5-12, 2024</span>
+                                </div>
+                            </div>
+                            <div class="dashboard-card">
+                                <h4>Travel History</h4>
+                                <div class="history-item">Santorini, Greece (2023)</div>
+                                <div class="history-item">Tokyo, Japan (2022)</div>
+                                <div class="history-item">New York, USA (2021)</div>
+                            </div>
+                            <div class="dashboard-card">
+                                <h4>Saved Destinations</h4>
+                                <div class="saved-item">Kyoto, Japan</div>
+                                <div class="saved-item">Sydney, Australia</div>
+                                <div class="saved-item">Barcelona, Spain</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Travel Analytics -->
+                <div class="travel-analytics">
+                    <div class="analytics-dashboard">
+                        <h3>Your Travel Personality</h3>
+                        <div class="analytics-grid">
+                            <div class="metric-card">
+                                <h4>Adventure Score</h4>
+                                <div class="score-circle" data-score="85"><span>85%</span></div>
+                            </div>
+                            <div class="metric-card">
+                                <h4>Cultural Explorer</h4>
+                                <div class="score-circle" data-score="72"><span>72%</span></div>
+                            </div>
+                            <div class="metric-card">
+                                <h4>Foodie Level</h4>
+                                <div class="score-circle" data-score="90"><span>90%</span></div>
+                            </div>
+                        </div>
+                        <div class="travel-map">
+                            <h4>Your Travel Footprint</h4>
+                            <div class="visited-countries">
+                                <span>🌍 15 Countries Visited</span>
+                                <div class="countries-list">
+                                    <span class="country-tag">USA</span>
+                                    <span class="country-tag">France</span>
+                                    <span class="country-tag">Japan</span>
+                                    <span class="country-tag">Greece</span>
+                                    <span class="country-tag">Italy</span>
+                                    <span class="country-tag">Thailand</span>
+                                    <span class="country-tag">Mexico</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Loyalty Program -->
+                <div class="loyalty-program">
+                    <div class="loyalty-container">
+                        <h3>TravelEase Rewards</h3>
+                        <div class="loyalty-levels">
+                            <div class="level-card">
+                                <h4>🌱 Explorer</h4>
+                                <p>0-2,499 points</p>
+                                <ul>
+                                    <li>Early access to deals</li>
+                                    <li>Basic support</li>
+                                </ul>
+                            </div>
+                            <div class="level-card active">
+                                <h4>🌟 Adventurer</h4>
+                                <p>2,500-7,499 points</p>
+                                <ul>
+                                    <li>Room upgrades</li>
+                                    <li>Priority support</li>
+                                    <li>Free travel insurance</li>
+                                </ul>
+                            </div>
+                            <div class="level-card">
+                                <h4>🎯 Globetrotter</h4>
+                                <p>7,500+ points</p>
+                                <ul>
+                                    <li>Complimentary stays</li>
+                                    <li>Personal travel consultant</li>
+                                    <li>VIP experiences</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="rewards-catalog">
+                            <h4>Redeem Your Points</h4>
+                            <div class="reward-items">
+                                <div class="reward-item" data-points="500">
+                                    <span>$50 Travel Credit</span>
+                                    <button class="btn btn-outline">Redeem</button>
+                                </div>
+                                <div class="reward-item" data-points="1000">
+                                    <span>Free Airport Transfer</span>
+                                    <button class="btn btn-outline">Redeem</button>
+                                </div>
+                                <div class="reward-item" data-points="2000">
+                                    <span>Hotel Room Upgrade</span>
+                                    <button class="btn btn-outline">Redeem</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sustainable Travel -->
+                <div class="sustainable-travel">
+                    <div class="sustainability-metrics">
+                        <h3>🌱 Your Sustainable Travel Impact</h3>
+                        <div class="impact-stats">
+                            <div class="impact-stat">
+                                <span class="number">127</span>
+                                <span class="label">Trees Planted</span>
+                            </div>
+                            <div class="impact-stat">
+                                <span class="number">45</span>
+                                <span class="label">Local Communities Supported</span>
+                            </div>
+                            <div class="impact-stat">
+                                <span class="number">89%</span>
+                                <span class="label">Carbon Offset</span>
+                            </div>
+                        </div>
+                        <div class="eco-certifications">
+                            <h4>Our Certifications</h4>
+                            <div class="cert-badges">
+                                <span class="badge">♻️ Green Tourism</span>
+                                <span class="badge">🌍 Sustainable Travel</span>
+                                <span class="badge">🤝 Fair Trade</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2796,6 +4211,8 @@
                         <li><a href="#" data-page="blog">Travel Blog</a></li>
                         <li><a href="#" data-page="packages">Packages</a></li>
                         <li><a href="#" data-page="tools">Travel Tools</a></li>
+                        <li><a href="#" data-page="community">Community</a></li>
+                        <li><a href="#" data-page="dashboard">Dashboard</a></li>
                         <li><a href="#" data-page="about">About Us</a></li>
                         <li><a href="#" data-page="contact">Contact</a></li>
                     </ul>
@@ -3097,6 +4514,21 @@
                 });
             });
             
+            // Booking Tabs Functionality
+            const bookingTabs = document.querySelectorAll('.booking-tabs .tab');
+            
+            bookingTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs
+                    bookingTabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                });
+            });
+            
             // Price Slider Functionality
             const priceSlider = document.getElementById('priceRange');
             const priceValue = document.getElementById('price-value');
@@ -3191,6 +4623,153 @@
                     }
                 });
             });
+            
+            // Style Options Selection
+            const styleOptions = document.querySelectorAll('.style-option');
+            
+            styleOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove active class from all options
+                    styleOptions.forEach(opt => {
+                        opt.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked option
+                    this.classList.add('active');
+                });
+            });
+            
+            // AI Chat Functionality
+            const chatInput = document.querySelector('.chat-input input');
+            const chatSend = document.querySelector('.chat-input .btn');
+            const chatMessages = document.querySelector('.chat-messages');
+            
+            if (chatSend && chatInput) {
+                chatSend.addEventListener('click', function() {
+                    const message = chatInput.value.trim();
+                    if (message) {
+                        // Add user message
+                        const userMessage = document.createElement('div');
+                        userMessage.className = 'message user-message';
+                        userMessage.innerHTML = `<p>${message}</p>`;
+                        chatMessages.appendChild(userMessage);
+                        
+                        // Clear input
+                        chatInput.value = '';
+                        
+                        // Simulate AI response
+                        setTimeout(() => {
+                            const aiMessage = document.createElement('div');
+                            aiMessage.className = 'message ai-message';
+                            aiMessage.innerHTML = `<p>I understand you're interested in ${message.toLowerCase()}. Let me find the perfect destinations for you!</p>`;
+                            chatMessages.appendChild(aiMessage);
+                            
+                            // Scroll to bottom
+                            chatMessages.scrollTop = chatMessages.scrollHeight;
+                        }, 1000);
+                        
+                        // Scroll to bottom
+                        chatMessages.scrollTop = chatMessages.scrollHeight;
+                    }
+                });
+                
+                // Allow sending with Enter key
+                chatInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        chatSend.click();
+                    }
+                });
+            }
+            
+            // App Download Buttons
+            const appStoreBtn = document.querySelector('.app-store');
+            const googlePlayBtn = document.querySelector('.google-play');
+            
+            if (appStoreBtn) {
+                appStoreBtn.addEventListener('click', function() {
+                    alert('Redirecting to App Store...');
+                });
+            }
+            
+            if (googlePlayBtn) {
+                googlePlayBtn.addEventListener('click', function() {
+                    alert('Redirecting to Google Play...');
+                });
+            }
+            
+            // Reward Redemption
+            const redeemButtons = document.querySelectorAll('.reward-item .btn');
+            
+            redeemButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const points = this.closest('.reward-item').getAttribute('data-points');
+                    alert(`You've successfully redeemed ${points} points for this reward!`);
+                });
+            });
+            
+            // NEW: Flight Search Functionality
+            const searchFlightsBtn = document.getElementById('search-flights');
+            const flightFromInput = document.getElementById('flight-from');
+            const flightToInput = document.getElementById('flight-to');
+            
+            if (searchFlightsBtn) {
+                searchFlightsBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const from = flightFromInput.value;
+                    const to = flightToInput.value;
+                    
+                    if (from && to) {
+                        // Check if it's New York to Bali search
+                        if (from.toLowerCase().includes('new york') && to.toLowerCase().includes('bali')) {
+                            // Show flight results
+                            alert('Found flights from New York to Bali! Showing available options...');
+                            // In a real implementation, this would show actual flight results
+                        } else {
+                            alert(`Searching for flights from ${from} to ${to}...`);
+                        }
+                    } else {
+                        alert('Please enter both departure and destination cities.');
+                    }
+                });
+            }
+            
+            // NEW: Insurance Selection Functionality
+            const basicCoverageBtn = document.querySelector('#basic-coverage .btn');
+            const comprehensiveCoverageBtn = document.querySelector('#comprehensive-coverage .btn');
+            
+            if (basicCoverageBtn) {
+                basicCoverageBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Remove selected state from other options
+                    comprehensiveCoverageBtn.classList.remove('btn-accent');
+                    comprehensiveCoverageBtn.classList.add('btn-outline');
+                    comprehensiveCoverageBtn.textContent = 'Select';
+                    
+                    // Add selected state to this option
+                    this.classList.remove('btn-outline');
+                    this.classList.add('btn-accent');
+                    this.textContent = 'Selected';
+                    
+                    alert('Basic coverage selected!');
+                });
+            }
+            
+            if (comprehensiveCoverageBtn) {
+                comprehensiveCoverageBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Remove selected state from other options
+                    basicCoverageBtn.classList.remove('btn-accent');
+                    basicCoverageBtn.classList.add('btn-outline');
+                    basicCoverageBtn.textContent = 'Select';
+                    
+                    // Add selected state to this option
+                    this.classList.remove('btn-outline');
+                    this.classList.add('btn-accent');
+                    this.textContent = 'Selected';
+                    
+                    alert('Comprehensive coverage selected!');
+                });
+            }
         });
     </script>
 </body>
